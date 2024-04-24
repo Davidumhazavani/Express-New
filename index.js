@@ -1,11 +1,14 @@
 import express from 'express'
 import { data } from './data.js';
 import cors from 'cors';
+import dotenv from 'dotenv/config.js'
+import userRoutes from './routes/users.js';
 
 const app = express();
 
 const port = 10000
 app.use(cors());
+app.use('/api', userRoutes)
 
 app.get('/home', (req, res)=> {
     res.send(data)
